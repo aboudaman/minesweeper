@@ -10,6 +10,38 @@ let generatePlayerBoard = (numberOfRows, numberOfColumns) => {
     board.push(row);
 
   }
-console.log(board);
+return board;
 };
-generatePlayerBoard(2, 3);
+
+let generateBombBoard = (numberOfRows, numberOfColumns, numberOfBombs) => {
+  let board =[];
+
+  for (rowIndex = 0; rowIndex < numberOfRows; rowIndex++) {
+    row = [];
+    for (colIndex = 0; colIndex < numberOfColumns; colIndex++) {
+      row.push(null);
+    }
+    board.push(row);
+
+  }
+  let numberOfBombsPlaced = 0;
+  while (numberOfBombsPlaced <= numberOfBombs) {
+    //Bomb collision needs to be addressed
+    let randomRowIndex = Math.floor(Math.random * numberOfRows);
+    let randomColumnIndex = Math.floor(Math.random * numberOfColumns);
+    board[randomRowIndex][randomColumnIndex] = 'B';
+    numberOfBombsPlaced += 1;
+  }
+
+return board;
+
+};
+const printBoard = board => {
+  board.map(row => {
+
+  })
+}
+
+console.log(generatePlayerBoard(5, 5));
+my2D = [[10, 20,30], [40,50,60], [70,80,90]];
+console.log(my2D[0][0]);
