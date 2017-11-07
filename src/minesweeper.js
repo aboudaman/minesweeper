@@ -8,7 +8,6 @@ let generatePlayerBoard = (numberOfRows, numberOfColumns) => {
       row.push(' ');
     }
     board.push(row);
-
   }
 return board;
 };
@@ -22,26 +21,26 @@ let generateBombBoard = (numberOfRows, numberOfColumns, numberOfBombs) => {
       row.push(null);
     }
     board.push(row);
-
   }
   let numberOfBombsPlaced = 0;
   while (numberOfBombsPlaced <= numberOfBombs) {
     //Bomb collision needs to be addressed
-    let randomRowIndex = Math.floor(Math.random * numberOfRows);
-    let randomColumnIndex = Math.floor(Math.random * numberOfColumns);
+    let randomRowIndex = Math.floor(Math.random() * numberOfRows);
+    let randomColumnIndex = Math.floor(Math.random() * numberOfColumns);
     board[randomRowIndex][randomColumnIndex] = 'B';
     numberOfBombsPlaced += 1;
   }
-
 return board;
-
 };
+
 const printBoard = board => {
-  board.map(row => {
+  console.log(board.map(row =>
+    row.join(' | ')).join('\n'));
+};
+let bombBoard = generateBombBoard(5, 5, 5);
+let playerBoard = generatePlayerBoard(5, 5);
 
-  })
-}
-
-console.log(generatePlayerBoard(5, 5));
-my2D = [[10, 20,30], [40,50,60], [70,80,90]];
-console.log(my2D[0][0]);
+console.log('Player Board: ');
+printBoard(playerBoard);
+console.log('bomb Board: ');
+printBoard(bombBoard);
